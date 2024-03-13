@@ -1,12 +1,37 @@
+//import React from 'react';
+
 import './itemListContainer.css'
-const ItemListContainer = ({greeting, saludo}) =>{
+import React, { useState, useEffect } from 'react';
+import { getProducts } from '../../mock/fakeApi';
+import ItemList from '../itemList/itemList';
+import { useParams } from 'react-router-dom';
+
+function ItemListContainer  ({greeting}) {
+const [productos, setProductos]= useState([])   
+const {categoryId} = useParams()
+
+useEffect(()=>{
+    getProducts()
+    .then((res)=>{
+        if(categoryId){
+            setProductos(res.filter((prod)=> prod.category === categoryId))
+
+        }else{
+            setProductos(res)
+        }
+    })
+    .catch((error)=> console.log(error, 'todo mal'))
+},[categoryId])
+
     return(
         <div>
-            <h1 className='titulo'>{greeting}</h1>
-            <h3 className='subtituloPresentacion'>{saludo}</h3>
-
+            {categoryId ?  <h1 className='titulo'>{greeting} <span>{categoryId}</span></h1>: <h1 className='titulo'>{greeting}</h1> }
+            
+            <ItemList productos={productos}/>
+            
+            
         </div>
 
     );
-}
+    }
 export default ItemListContainer;

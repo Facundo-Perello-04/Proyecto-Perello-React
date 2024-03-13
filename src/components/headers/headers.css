@@ -25,6 +25,7 @@
 
 
 .nav-link{
+    display: flex;
     text-decoration: none;
     color: black;
     margin: 15px;

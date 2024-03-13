@@ -1,15 +1,24 @@
 
 import './App.css';
 import { Headers } from './components/headers/headers';
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const saludo='Hola mundo!'
+  
   return (
-    <div className="App">
+    <BrowserRouter>
       <Headers/>
-      <ItemListContainer greeting='Bienvenidos a los pollos hermanos' saludo={saludo}/>
-    </div>
+      <Routes>
+        <Route path='/' element={ <ItemListContainer greeting='Bienvenidos a los pollos hermanos' />}/>
+        <Route path='/categories/:categoryId' element={<ItemListContainer greeting='categoria: '/>} />
+        <Route path='/item/:itemId' element={ <ItemDetailContainer/> }/>
+      </Routes>
+      
+      
+      
+    </BrowserRouter>
   );
 }
 
