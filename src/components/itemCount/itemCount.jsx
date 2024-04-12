@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 //import 'bootstrap/dist/css/bootstrap.min.css'
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock,onAdd}) => {
     const [count, setCount]=useState(1)
     const sumar = () =>{
         if(count < stock){
@@ -18,9 +18,9 @@ const ItemCount = ({stock}) => {
         
         
     }  
-    const onAdd = () =>{
+    //const onAdd = () =>{
 
-    }
+    //}
     return(
     <>
     <div className="seccionCompra">
@@ -28,7 +28,7 @@ const ItemCount = ({stock}) => {
         <span className="contador">{count}</span>
         <button className="botonSuma" onClick={sumar}>+</button>
     </div>
-    <button className="botonCompra" disabled={stock === 0 || count === 0 } onClick={onAdd}>comprar</button>
+    <button className="botonCompra" disabled={stock === 0 || count === 0 } onClick={()=>onAdd(count)}>comprar</button>
 
     </>
     )

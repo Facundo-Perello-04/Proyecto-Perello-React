@@ -1,10 +1,14 @@
 import './cartWidget.css'
 import logoCarro from '../imgs/logoCarro.png'
-const CartWidget = () => {
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+const CartWidget = ({counter}) => {
+    const {cartQuantity}= useContext(CartContext)
+//    console.log(cart,'en el navbar')
     return(
         <div className='logo'>
         <img  src={logoCarro} alt="carrito" />
-        <span className='badge'>5</span>
+        {cartQuantity() > 0 &&  <span className='badge'>{cartQuantity()}</span>}
         </div>
 
 

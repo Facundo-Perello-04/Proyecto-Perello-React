@@ -11,11 +11,14 @@ export const Headers = () => {
             <NavLink className="nav-link" to='/categories/ofertas'>Ofertas</NavLink>
             <NavLink className="nav-link" to='/categories/mas vendidos'>Mas vendidos</NavLink>
             <NavLink className="nav-link" to='/categories/Nuevos'>Nuevos</NavLink>
+            <NavLink className="nav-link" to='/form'>Formulario</NavLink>
             
             
         
         </nav>
-        <CartWidget/>
+        <NavLink to='/cart' className='carrito'>
+            <CartWidget counter={15}/>
+        </NavLink>
         
         
 

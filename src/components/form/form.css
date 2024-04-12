@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.formulario{
+    width: 400px;
+    background-color: aquamarine;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 5px;
+    color: white;
+}
+.controls {
+    width: 100%;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid black;
+    font-size: 18px;
+}
+/*.formulario .botones{
+    width: 100%;
+    background-color: blue;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}*/
